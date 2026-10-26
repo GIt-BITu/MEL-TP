@@ -1,6 +1,7 @@
 # Build output
 /target/
 /dist/
+/package-input/
 *.class
 
 # IDE configuration

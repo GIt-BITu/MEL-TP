@@ -96,6 +96,8 @@ class BoardTest {
     }
 
     private static final class FixedRandom extends Random {
+        private static final long serialVersionUID = 1L;
+
         private final int value;
 
         private FixedRandom(int value) {

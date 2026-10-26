@@ -1,6 +1,9 @@
-# JeuMines repository audit
+# JeuMines pre-refactor repository audit
 
-Audit snapshot: 2026-10-26. This is a small Java Swing Minesweeper clone, not a conventional multi-module application. Its source is two Java files; most repository bulk is checked-in build output, duplicated GIF resources, Finder metadata, and local Git state.
+Audit snapshot: 2026-10-26, before the refactor. This document preserves the
+baseline findings that motivated the work. The repository's current structure,
+quality gates, packaging process, and extension guidance are documented in
+[`MAINTAINER_GUIDE.md`](MAINTAINER_GUIDE.md).
 
 ## Executive assessment
 

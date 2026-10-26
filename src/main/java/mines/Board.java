@@ -13,7 +13,13 @@ import java.util.function.Consumer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-/** Swing view and input adapter for a {@link GameBoard}. */
+/**
+ * Swing view and input adapter for a {@link GameBoard}.
+ *
+ * <p>The inherited Swing serialization mechanism is not supported because this
+ * component deliberately owns a live model and a status callback.</p>
+ */
+@SuppressWarnings("serial")
 public final class Board extends JPanel {
     private static final long serialVersionUID = 1L;
 
