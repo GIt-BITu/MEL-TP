@@ -1,2 +1,17 @@
+# Build output
+/target/
+/dist/
+*.class
 
-.agents/*
+# IDE configuration
+/.idea/
+/.classpath
+/.project
+/.settings/
+/.vscode/
+
+# Operating system metadata
+.DS_Store
+
+# Local agent configuration
+/.agents/
