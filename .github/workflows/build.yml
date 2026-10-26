@@ -19,12 +19,18 @@ jobs:
           - os: ubuntu-latest
             name: Linux
             artifact: jeu-mines-linux
+            image: dist/JeuMines
+            launcher: dist/JeuMines/bin/JeuMines
           - os: windows-latest
             name: Windows
             artifact: jeu-mines-windows
+            image: dist/JeuMines
+            launcher: dist/JeuMines/JeuMines.exe
           - os: macos-latest
             name: macOS
             artifact: jeu-mines-macos
+            image: dist/JeuMines.app
+            launcher: dist/JeuMines.app/Contents/MacOS/JeuMines
 
     steps:
       - name: Check out source
@@ -54,9 +60,13 @@ jobs:
             --main-jar jeu-mines-1.0.0.jar \
             --dest dist
 
+      - name: Verify native launcher
+        shell: bash
+        run: test -f "${{ matrix.launcher }}"
+
       - name: Upload native app image
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
-          path: dist/
+          path: ${{ matrix.image }}
           if-no-files-found: error

@@ -36,9 +36,23 @@ src/test/java/mines/       unit and Swing-component tests
 .github/workflows/         CI and platform application-image packaging
 ```
 
-The workflow produces one native application image per platform. The Windows
-archive contains a `.exe` launcher, the Linux archive contains a native
-launcher, and the macOS archive contains a `.app` bundle.
+Each workflow run publishes exactly three separately downloadable artifacts:
+
+- `jeu-mines-windows`, containing `JeuMines.exe`;
+- `jeu-mines-linux`, containing `JeuMines/bin/JeuMines`; and
+- `jeu-mines-macos`, containing the `JeuMines.app` bundle.
+
+GitHub Actions packages each artifact as its own downloadable archive. Every
+job verifies the expected native launcher exists before uploading its artifact.
+
+## Documentation
+
+- [`Docs/MAINTAINER_GUIDE.md`](Docs/MAINTAINER_GUIDE.md) explains the current
+  architecture, quality gates, and safe extension points.
+- [`Docs/REFACTORING_SUMMARY.md`](Docs/REFACTORING_SUMMARY.md) records the
+  broken starting state and the fixes delivered by the refactor.
+- [`Docs/REPOSITORY_AUDIT.md`](Docs/REPOSITORY_AUDIT.md) preserves the original
+  pre-refactor audit.
 
 ## Licence and provenance
 

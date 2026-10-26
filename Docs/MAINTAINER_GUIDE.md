@@ -7,12 +7,27 @@ is the authoritative local quality gate: it compiles with all `javac` warnings
 treated as errors, executes the JUnit 5 suite headlessly, creates the runnable
 JAR, generates JaCoCo coverage, and enforces at least 85% line coverage. The
 current suite exercises 15 tests and covers 89.04% of executable source lines.
+For the baseline problems and their resolution, see
+[`REFACTORING_SUMMARY.md`](REFACTORING_SUMMARY.md).
 
 GitHub Actions repeats `mvn verify` on Linux, Windows, and macOS. Each matrix
 job invokes `jpackage` on its own operating system, which is required because
 native launchers cannot be reliably cross-compiled by `jpackage`. The uploaded
 artifacts contain a self-contained app image: a Windows `.exe`, a Linux native
 launcher, or a macOS `.app` bundle and launcher.
+
+Every workflow run has exactly three separately downloadable artifacts in its
+Actions summary. GitHub wraps each one in a download archive:
+
+| Artifact | Runner | Launcher inside the download |
+|---|---|---|
+| `jeu-mines-windows` | Windows | `JeuMines.exe` |
+| `jeu-mines-linux` | Linux | `JeuMines/bin/JeuMines` |
+| `jeu-mines-macos` | macOS | `JeuMines.app/Contents/MacOS/JeuMines` |
+
+The workflow verifies that precise launcher path before uploading the matching
+artifact. These are unsigned app images, not code-signed installers; signing
+or notarization requires platform-specific credentials and a release policy.
 
 ## Architecture
 
