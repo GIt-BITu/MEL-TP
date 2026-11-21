@@ -53,6 +53,9 @@ job verifies the expected native launcher exists before uploading its artifact.
   broken starting state and the fixes delivered by the refactor.
 - [`Docs/REPOSITORY_AUDIT.md`](Docs/REPOSITORY_AUDIT.md) preserves the original
   pre-refactor audit.
+- [`Docs/MULTIPLAYER_INCIDENT_PLAYBOOK.md`](Docs/MULTIPLAYER_INCIDENT_PLAYBOOK.md)
+  is the one-maintainer first-hour response and prevention plan for a critical
+  multiplayer production incident.
 
 ## Licence and provenance
 
